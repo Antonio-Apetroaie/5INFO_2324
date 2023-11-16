@@ -1,16 +1,28 @@
 <script>
     let isFirstPanelOpen = false;
     let isSecondPanelOpen = false;
+    let isThirdPanelOpen = false;
 
     const toggleFirstPanel = () => {
         isFirstPanelOpen = !isFirstPanelOpen;
         isSecondPanelOpen = false;
+        isThirdPanelOpen =  false;
     }
 
     const toggleSecondPanel = () => {
         isSecondPanelOpen = !isSecondPanelOpen;
         isFirstPanelOpen = false;
+        isThirdPanelOpen =  false;
     }
+
+
+    const toggleThirdPanel = () => {
+        isThirdPanelOpen = !isFirstPanelOpen;
+        isSecondPanelOpen = false;
+        isFirstPanelOpen = false;
+    }
+
+    
 </script>
 
 <svelte:head>
@@ -30,6 +42,7 @@
 
     </p>
 
+
     <div class="panel panel2">
         <h1 class="panel-title">HEADER 2</h1>
         <button class="panel-button" on:click={toggleSecondPanel} aria-label={isSecondPanelOpen ? "Close" : "Open"}>
@@ -41,7 +54,23 @@
     BELLO
 
     </p>
+
+
+    <div class="panel panel3">
+        <h1 class="panel-title">HEADER 3</h1>
+        <button class="panel-button" on:click={toggleThirdPanel} aria-label={isThirdPanelOpen ? "Close" : "Open"}>
+            <span class="material-icons">{isThirdPanelOpen ? "keyboard_arrow_down" : "keyboard_arrow_up"}</span>
+        </button>
+    </div>
+    <p class="{isThirdPanelOpen ? '' : 'hidden'}">
+        
+    E GAY
+
+    </p>
 </div>
+
+
+
 
 <style>
     .hidden {
